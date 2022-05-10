@@ -3,6 +3,7 @@
   --body-min-width: 950px;
 
   --chat-header-height: 3.5rem;
+  --secndary-text-color: grey;
 }
 
 *{
@@ -24,14 +25,14 @@ html{
 }
 
 body{
-  /* background-color: blue; */
+  background-color: lightgrey;
   padding: var(--body-padding);
   width: 100%;
   height: 100vh;
   min-width: var(--body-min-width);
 }
 
-/* ROOT  */
+/* ---ROOT---  */
 
 #root{
   margin: 0 auto;
@@ -75,19 +76,54 @@ body{
   margin: 0 10px;
 }
 
-/* chat List  */
+/* ---chat List---  */
 
 .chat-list{
   width: 30%;
   height: 100%;
   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .chat-list .chat-header{
   border-right: 2px solid #dedede;
 }
 
-/* chat Display  */
+/*contacts list */
+.contacts-list{
+  flex-grow: 1;
+  background-color: white;
+}
+
+.notifications{
+  display: flex;
+  align-items: center;
+  background-color: #8edafc;
+  padding: 1rem;
+}
+
+.notifications .icon{
+  margin-right: 10px;
+  border-radius: 50%;
+  font-size: 2rem;
+  width: 3rem;
+  height: 3rem;
+  line-height: 3rem;
+  text-align: center;
+  background-color: white;
+}
+
+.notifications .action-text h3{
+  font-size: .8rem;
+}
+
+.notifications .action-text a{
+  color: var(--secndary-text-color);
+  font-size: .7rem;
+}
+
+/* ---chat Display---  */
 
 .chat-display{
   /* background-color: blue; */
@@ -99,4 +135,5 @@ body{
 .user .user-info h4{
   font-weight: lighter;
   font-size: 0.7em;
+  color: var(--secndary-text-color);
 }
