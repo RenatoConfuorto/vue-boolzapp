@@ -96,6 +96,7 @@ body{
   background-color: white;
 }
 
+
 .notifications{
   display: flex;
   align-items: center;
@@ -121,6 +122,30 @@ body{
 .notifications .action-text a{
   color: var(--secndary-text-color);
   font-size: .7rem;
+}
+
+
+.search-bar{
+  background-color: #fafafa;
+  padding: 0.3rem;
+  display: flex;
+  align-items: center;
+}
+
+.search-bar i{
+  padding: .2rem .6rem;
+  font-size: 1rem;
+  background-color: white;
+  color: var(--secndary-text-color);
+}
+
+.search-bar input,
+.search-bar input:focus-visible{
+  border: 0;
+  border-radius: 0;
+  height: 1.4rem;
+  flex-grow: 1;
+  outline: 0;
 }
 
 /* ---chat Display---  */
