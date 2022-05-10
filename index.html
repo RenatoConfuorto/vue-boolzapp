@@ -59,6 +59,48 @@
           <input type="text" placeholder="Cerca o inizia una nuova chat">
         </div>
 
+        <div class="contacts">
+
+          <ul>
+            <!-- Example element
+            <li class="chat-element active">
+
+              <div class="icon">
+                <img src="img/avatar_1.jpg" alt="">
+              </div>
+
+              <div class="chat-meta">
+                <h3>Nome</h3>
+                <h4>Ultimo messaggio</h4>
+              </div>
+
+              <div class="chat-time">
+                12:00
+              </div>
+            </li> -->
+            <li class="chat-element"
+            :class="{ active: index == currentContact }"
+            v-for="(element, index) in contacts"
+            >
+
+              <div class="icon">
+                <img :src=" 'img/avatar' + element.avatar + '.jpg' " alt="element.name">
+              </div>
+
+              <div class="chat-meta">
+                <h3>{{ element.name }}</h3>
+                <h4>Ultimo messaggio</h4>
+              </div>
+
+              <div class="chat-time">
+                12:00
+              </div>
+
+            </li>
+          </ul>
+
+        </div>
+
       </div>
 
     </section>

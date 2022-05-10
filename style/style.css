@@ -32,6 +32,10 @@ body{
   min-width: var(--body-min-width);
 }
 
+img{
+  width: 100%;
+}
+
 /* ---ROOT---  */
 
 #root{
@@ -71,9 +75,14 @@ body{
 }
 
 .chat-header .user img{
+  width: auto;
   height: 2.5rem;
   border-radius: 50%;
   margin: 0 10px;
+}
+
+.chat-header .user{
+  flex-grow: 1;
 }
 
 /* ---chat List---  */
@@ -96,6 +105,7 @@ body{
   background-color: white;
 }
 
+  /*notifications*/
 
 .notifications{
   display: flex;
@@ -124,6 +134,7 @@ body{
   font-size: .7rem;
 }
 
+  /*search bar*/
 
 .search-bar{
   background-color: #fafafa;
@@ -146,6 +157,49 @@ body{
   height: 1.4rem;
   flex-grow: 1;
   outline: 0;
+}
+
+  /*contacts*/
+
+.contacts ul{
+  list-style-type: none;
+}
+
+.chat-element{
+  padding: .5rem 0;
+  display: flex;
+}
+
+.chat-element.active{
+  background-color: #e9ebeb;
+}
+
+.chat-element:hover{
+  background-color: #f0f2f2;
+  cursor: pointer;
+}
+
+.chat-element .icon{
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 1rem;
+}
+
+.chat-meta{
+  flex-grow: 1;
+}
+
+.chat-element .chat-meta h4,
+.chat-element .chat-time{
+  font-weight: lighter;
+  font-size: 0.7em;
+  color: var(--secndary-text-color);
+}
+
+.chat-element .chat-time{
+  margin-right: .5rem;
 }
 
 /* ---chat Display---  */
