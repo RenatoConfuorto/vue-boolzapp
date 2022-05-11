@@ -3,7 +3,7 @@
   --body-min-width: 950px;
 
   --chat-header-height: 3.5rem;
-  --secndary-text-color: grey;
+  --secndary-text-color: #b6b9bb;
   --icons-color: #b1b1b1;
 }
 
@@ -128,7 +128,7 @@ img{
 }
 
 .notifications .action-text a{
-  color: var(--secndary-text-color);
+  color: #4f7485;
   font-size: .7rem;
 }
 
@@ -223,6 +223,53 @@ img{
   width: 100%;
   flex-grow: 1;
   background-image: url(../img/mine.jpg);
+  padding: 2rem 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start
+}
+
+.message{
+  position: relative;
+  margin-bottom: 5px;
+  padding: 1.2rem 1.2rem;
+  border-radius: 10px;
+  min-width: 40%;
+  max-width: 60%;
+  font-size: 1rem;
+  line-height: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/*add more margin between sent/recieved messages*/
+.message.sent + .message.recieved,
+.message.recieved + .message.sent{
+  margin-top: 8px;
+}
+
+.message p{
+  justify-content: center;
+}
+
+.message span{
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  align-self: flex-end;
+  font-size: .7rem;
+  color: var(--secndary-text-color)
+}
+
+.message.recieved{
+  align-self: flex-start;
+  background-color: white;
+}
+
+.message.sent{
+  align-self: flex-end;
+  background-color: #b5f9ba;
 }
 
   /*write message section*/
