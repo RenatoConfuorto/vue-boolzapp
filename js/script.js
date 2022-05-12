@@ -165,6 +165,7 @@ const app = new Vue({
       },
     ],
     currentContact: 0,
+    newMessage: '',
   },
   methods:{
 

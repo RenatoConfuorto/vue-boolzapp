@@ -112,9 +112,12 @@
       <div class="chat-header">
         <!-- current chat info -->
         <div class="user">
-          <img src="img/avatar_1.jpg" alt="User avatar">
+          <img
+          :src=" 'img/avatar' + contacts[currentContact].avatar + '.jpg' "
+          alt="User avatar">
+
           <div class="user-info">
-            <h3>Michele</h3>
+            <h3>{{ contacts[currentContact].name }}</h3>
             <h4>Ultimo accesso</h4>
           </div>
         </div>
