@@ -173,17 +173,33 @@ const app = new Vue({
       this.currentContact = index;
     },
 
-    addMessage: function(message, statusString){
+    computerMessage: function(){
+      const newObj = {
+        date: "data messaggio",
+        message: 'Ok',
+        status: 'received',
+      }
+
+      setTimeout(() => {
+        this.contacts[this.currentContact].messages.push(newObj);
+      }, 1000)
+    },
+
+    sendMessage: function(message){
       const newObj = {
         date: "data messaggio",
         message: message,
-        status: statusString,
+        status: 'sent',
       }
 
       //inserire l'oggetto nell'array del contatto corrispondente
-      // const array = this.contact[this.currentContact].messages;
-      console.log(this.contacts[this.currentContact].messages)
       this.contacts[this.currentContact].messages.push(newObj);
-    }
+      //ripulire l'input
+      this.newMessage = '';
+      
+      //ottenere risposta del computer
+      this.computerMessage();
+
+    },
   }
 });
