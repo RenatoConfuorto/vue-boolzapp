@@ -168,6 +168,7 @@ const app = new Vue({
     ],
     currentContact: 0,
     newMessage: '',
+    searchText: '',
   },
   methods:{
     getChatLastMessage: function(contact, index){
@@ -226,6 +227,18 @@ const app = new Vue({
     getMessageTime: function(date){
       //ritorna ora e minuti della data
       return dayjs(date, 'DD/MM/YYYY HH:mm:ss').format('HH:mm');
+    },
+
+    filterChat: function(){
+      this.contacts.forEach((contact) => {
+
+        if(contact.name.toLowerCase().includes(this.searchText.toLowerCase())){
+          contact.visible = true;
+        }else{
+          contact.visible = false;
+
+        }
+      });
     },
   }
 });

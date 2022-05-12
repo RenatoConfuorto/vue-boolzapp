@@ -56,7 +56,7 @@
 
         <div class="search-bar">
           <i class="fas fa-search"></i>
-          <input type="text" placeholder="Cerca o inizia una nuova chat">
+          <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="searchText" @keyup="filterChat()">
         </div>
 
         <div class="contacts">
@@ -81,6 +81,7 @@
             <li class="chat-element"
             :class="{ active: index == currentContact }"
             v-for="(element, index) in contacts"
+            v-if="element.visible"
             @click="changeCurrentContact(index), getChatLastMessage(element, index)"
             >
 
