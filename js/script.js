@@ -171,6 +171,19 @@ const app = new Vue({
 
     changeCurrentContact: function (index){
       this.currentContact = index;
+    },
+
+    addMessage: function(message, statusString){
+      const newObj = {
+        date: "data messaggio",
+        message: message,
+        status: statusString,
+      }
+
+      //inserire l'oggetto nell'array del contatto corrispondente
+      // const array = this.contact[this.currentContact].messages;
+      console.log(this.contacts[this.currentContact].messages)
+      this.contacts[this.currentContact].messages.push(newObj);
     }
   }
 });
