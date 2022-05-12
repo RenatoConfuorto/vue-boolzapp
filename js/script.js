@@ -1,3 +1,5 @@
+dayjs.extend(window.dayjs_plugin_customParseFormat);
+
 const app = new Vue({
   el: "#root",
   data:{
@@ -168,6 +170,25 @@ const app = new Vue({
     newMessage: '',
   },
   methods:{
+    getChatLastMessage: function(contact, index){
+      //prendere l'ultimo messaggio dal contatto corrispondente
+      const lastMessage = contact.messages[this.contacts[index].messages.length - 1]
+      
+      let lastMessageText = lastMessage.message;
+      //troncare il messaggio se è troppo lungo
+      if(lastMessageText.length >= 25){
+        lastMessageText = lastMessageText.slice(0, 25) + '...';
+      }
+      // console.log(lastMessageText);
+
+      //prendere l'orario del messaggio e formattarlo
+      const time = this.getMessageTime(lastMessage.date)
+      // console.log(time);
+      return {
+        message: lastMessageText,
+        time: time
+      }
+    },
 
     changeCurrentContact: function (index){
       this.currentContact = index;
@@ -175,7 +196,7 @@ const app = new Vue({
 
     computerMessage: function(){
       const newObj = {
-        date: "data messaggio",
+        date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
         message: 'Ok',
         status: 'received',
       }
@@ -187,7 +208,7 @@ const app = new Vue({
 
     sendMessage: function(message){
       const newObj = {
-        date: "data messaggio",
+        date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
         message: message,
         status: 'sent',
       }
@@ -200,6 +221,11 @@ const app = new Vue({
       //ottenere risposta del computer
       this.computerMessage();
 
+    },
+
+    getMessageTime: function(date){
+      //ritorna ora e minuti della data
+      return dayjs(date, 'DD/MM/YYYY HH:mm:ss').format('HH:mm');
     },
   }
 });

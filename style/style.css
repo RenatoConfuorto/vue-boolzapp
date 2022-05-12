@@ -190,10 +190,15 @@ img{
   flex-grow: 1;
 }
 
+.chat-element .chat-meta h3{
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
 .chat-element .chat-meta h4,
 .chat-element .chat-time{
   font-weight: lighter;
-  font-size: 0.7em;
+  font-size: 0.8em;
   color: var(--secndary-text-color);
 }
 
@@ -232,7 +237,7 @@ img{
 .message{
   position: relative;
   margin-bottom: 5px;
-  padding: 1.2rem 1.2rem;
+  padding: 1.3rem 1.2rem;
   border-radius: 10px;
   min-width: 40%;
   max-width: 60%;

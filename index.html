@@ -81,7 +81,7 @@
             <li class="chat-element"
             :class="{ active: index == currentContact }"
             v-for="(element, index) in contacts"
-            @click="changeCurrentContact(index)"
+            @click="changeCurrentContact(index), getChatLastMessage(element, index)"
             >
 
               <div class="icon">
@@ -90,11 +90,11 @@
 
               <div class="chat-meta">
                 <h3>{{ element.name }}</h3>
-                <h4>Ultimo messaggio</h4>
+                <h4>{{ getChatLastMessage(element, index).message }}</h4>
               </div>
 
               <div class="chat-time">
-                12:00
+                {{ getChatLastMessage(element, index).time }}
               </div>
 
             </li>
@@ -140,7 +140,7 @@
         :class="(element.status == 'sent' ? 'sent' : 'received')"
         >
           <p>{{ element.message }}</p>
-          <span>{{ element.date }}</span>
+          <span>{{ getMessageTime(element.date) }}</span>
         </div>
 
       </div>
@@ -163,6 +163,12 @@
 
   </div>
 
+  
+  <!-- DayJs -->
+  <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+  <!-- DayJs Custom Format -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.8.25/plugin/customParseFormat.js"></script>
+  <!-- Script -->
   <script src="js/script.js" type="text/javascript"></script>
 </body>
 </html>
