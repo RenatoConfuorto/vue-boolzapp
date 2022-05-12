@@ -139,7 +139,16 @@
         <div class="message"
         v-for="element in contact.messages"
         :class="(element.status == 'sent' ? 'sent' : 'received')"
+        @click="showOptionsMenu"
         >
+          <div class="message-option">
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="message-options-menu">
+            <ul>
+              <li>Cencella messaggio</li>
+            </ul>
+          </div>
           <p>{{ element.message }}</p>
           <span>{{ getMessageTime(element.date) }}</span>
         </div>

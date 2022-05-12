@@ -240,5 +240,18 @@ const app = new Vue({
         }
       });
     },
+
+    showOptionsMenu: function(event) {
+      //prelevare il div del messaggio su cui si è cliccato
+      let element;
+      if(event.target.classList.contains('message')){
+        element = event.target;
+      }else{
+        element = event.target.parentNode;
+      }
+
+      //aggiungere\rimuovere la classe active
+      element.classList.toggle('menu-active');
+    }
   }
 });

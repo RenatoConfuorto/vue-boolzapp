@@ -244,8 +244,7 @@ img{
   font-size: 1rem;
   line-height: 1rem;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  align-items: center;
 }
 
 /*add more margin between sent/received messages*/
@@ -254,8 +253,32 @@ img{
   margin-top: 8px;
 }
 
-.message p{
-  justify-content: center;
+.message .message-option{
+  margin-right: 6px;
+  color: var(--icons-color);
+  display: none;
+}
+
+/*messages menu*/
+.message-options-menu{
+  display: none;
+  position: absolute;
+  bottom: -1.8rem;
+  padding: 0 .4rem;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  line-height: 1.3;
+  background-color: inherit;
+}
+
+.message-options-menu ul{
+  list-style-type: none;
+}
+
+.message.menu-active .message-option,
+.message.menu-active .message-options-menu{
+  display: inline-block;
+  cursor: pointer;
 }
 
 .message span{
