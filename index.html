@@ -81,6 +81,7 @@
             <li class="chat-element"
             :class="{ active: index == currentContact }"
             v-for="(element, index) in contacts"
+            @click="changeCurrentContact(index)"
             >
 
               <div class="icon">

@@ -165,5 +165,11 @@ const app = new Vue({
       },
     ],
     currentContact: 0,
+  },
+  methods:{
+
+    changeCurrentContact: function (index){
+      this.currentContact = index;
+    }
   }
 });
