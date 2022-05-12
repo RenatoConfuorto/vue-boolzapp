@@ -243,9 +243,9 @@ img{
   justify-content: center;
 }
 
-/*add more margin between sent/recieved messages*/
-.message.sent + .message.recieved,
-.message.recieved + .message.sent{
+/*add more margin between sent/received messages*/
+.message.sent + .message.received,
+.message.received + .message.sent{
   margin-top: 8px;
 }
 
@@ -262,7 +262,7 @@ img{
   color: var(--secndary-text-color)
 }
 
-.message.recieved{
+.message.received{
   align-self: flex-start;
   background-color: white;
 }

@@ -126,31 +126,17 @@
       </div>
 
       <!-- chat messages -->
-      <div class="chat">
-
-        <div class="message sent">
-          <p>Messaggio inviato</p>
-          <span>12:00</span>
-        </div>
-
-        <div class="message sent">
-          <p>Messaggio inviato</p>
-          <span>12:00</span>
-        </div>
-
-        <div class="message recieved">
-          <p>messaggio ricevuto</p>
-          <span>12:00</span>
-        </div>
-
-        <div class="message recieved">
-          <p>messaggio ricevuto</p>
-          <span>12:00</span>
-        </div>
-
-        <div class="message sent">
-          <p>Messaggio inviato</p>
-          <span>12:00</span>
+      <div class="chat"
+      v-for="(contact, index) in contacts"
+      v-if="index == currentContact"
+      >
+        
+        <div class="message"
+        v-for="element in contact.messages"
+        :class="(element.status == 'sent' ? 'sent' : 'received')"
+        >
+          <p>{{ element.message }}</p>
+          <span>{{ element.date }}</span>
         </div>
 
       </div>
