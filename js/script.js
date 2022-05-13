@@ -255,15 +255,6 @@ const app = new Vue({
       //prelevare il div del messaggio su cui si è cliccato
       const element = document.querySelectorAll('.message')[index];
 
-      //chiudere il menu a tendina se un altro messaggio lo ha aperto
-      if(
-        document.querySelector('.menu-active') &&
-        document.querySelector('.menu-active') !== element
-      ){
-        console.log('ciao');
-        document.querySelector('.menu-active').classList.remove('.menu-active');
-      }
-
       //aggiungere\rimuovere la classe active
       element.classList.toggle('menu-active');
     },
