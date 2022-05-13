@@ -245,6 +245,7 @@ img{
   line-height: 1rem;
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 /*add more margin between sent/received messages*/
@@ -263,18 +264,33 @@ img{
 .message-options-menu{
   display: none;
   position: absolute;
+  z-index: 1;
   bottom: -1.8rem;
-  padding: 0 .4rem;
-  border-radius: 5px;
   font-size: 1.2rem;
   line-height: 1.3;
-  background-color: inherit;
 }
 
 .message-options-menu ul{
+  border-radius: 5px;
+  border: 1px solid var(--icons-color);
   list-style-type: none;
+  background-color: inherit;
 }
 
+.message.sent .message-options-menu ul{
+  background-color: #b5f9ba;
+}
+
+.message.received .message-options-menu ul{
+  background-color: white;
+}
+
+.message-options-menu li{
+  padding: 0 .4rem;
+}
+
+
+.message:hover .message-option,
 .message.menu-active .message-option,
 .message.menu-active .message-options-menu{
   display: inline-block;

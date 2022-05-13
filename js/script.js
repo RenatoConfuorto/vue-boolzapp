@@ -172,6 +172,13 @@ const app = new Vue({
   },
   methods:{
     getChatLastMessage: function(contact, index){
+      //se non ci sono messaggi creare un oggetto vuovo
+      if(contact.messages.length === 0){
+        return {
+          message: '',
+          time: '',
+        }
+      };
       //prendere l'ultimo messaggio dal contatto corrispondente
       const lastMessage = contact.messages[this.contacts[index].messages.length - 1]
       
@@ -241,17 +248,33 @@ const app = new Vue({
       });
     },
 
-    showOptionsMenu: function(event) {
+    showOptionsMenu: function(index, event) {
+      //bloccare la funzione se non è stato cliccato il messaggio
+      if(event.target.nodeName !== 'DIV' && event.target.parentNode.nodeName !=='DIV')return;
+
       //prelevare il div del messaggio su cui si è cliccato
-      let element;
-      if(event.target.classList.contains('message')){
-        element = event.target;
-      }else{
-        element = event.target.parentNode;
+      const element = document.querySelectorAll('.message')[index];
+
+      //chiudere il menu a tendina se un altro messaggio lo ha aperto
+      if(
+        document.querySelector('.menu-active') &&
+        document.querySelector('.menu-active') !== element
+      ){
+        console.log('ciao');
+        document.querySelector('.menu-active').classList.remove('.menu-active');
       }
 
       //aggiungere\rimuovere la classe active
       element.classList.toggle('menu-active');
+    },
+
+    removeOptionMenu: function(event){
+      //togliere la classe menu-active al messaggio
+      event.target.classList.remove('menu-active');
+    },
+
+    deleteMessage: function(contactIndex, messageIndex){
+      this.contacts[contactIndex].messages.splice(messageIndex, 1);
     }
   }
 });

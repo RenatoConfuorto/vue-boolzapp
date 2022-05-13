@@ -132,21 +132,21 @@
 
       <!-- chat messages -->
       <div class="chat"
-      v-for="(contact, index) in contacts"
-      v-if="index == currentContact"
+      v-for="(contact, i) in contacts"
+      v-if="i == currentContact"
       >
         
         <div class="message"
-        v-for="element in contact.messages"
+        v-for="(element, index) in contact.messages"
         :class="(element.status == 'sent' ? 'sent' : 'received')"
-        @click="showOptionsMenu"
+        @click="showOptionsMenu(index, $event)"
         >
           <div class="message-option">
             <i class="fas fa-chevron-down"></i>
           </div>
           <div class="message-options-menu">
             <ul>
-              <li>Cencella messaggio</li>
+              <li @click="deleteMessage(i, index)">Cencella messaggio</li>
             </ul>
           </div>
           <p>{{ element.message }}</p>
