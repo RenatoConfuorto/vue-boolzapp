@@ -140,6 +140,7 @@
         v-for="(element, index) in contact.messages"
         :class="(element.status == 'sent' ? 'sent' : 'received')"
         @click="showOptionsMenu(index, $event)"
+        @mouseleave="removeOptionMenu"
         >
           <div class="message-option">
             <i class="fas fa-chevron-down"></i>
