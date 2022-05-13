@@ -257,11 +257,14 @@ const app = new Vue({
 
       //aggiungere\rimuovere la classe active
       element.classList.toggle('menu-active');
+
+      event.preventDefault();
     },
 
     removeOptionMenu: function(event){
       //togliere la classe menu-active al messaggio
       event.target.classList.remove('menu-active');
+
     },
 
     deleteMessage: function(contactIndex, messageIndex){
